@@ -60,6 +60,14 @@ class Mailer {
 		$this->mail->AltBody = 'This is a plain-text message body';
 		//Attach an image file
 		//$mail->addAttachment('images/phpmailer_mini.png');
+		$this->mail->isSMTP();
+$this->mail->SMTPOptions = array(
+    'ssl' => array(
+        'verify_peer' => false,
+        'verify_peer_name' => false,
+        'allow_self_signed' => true
+    )
+);
 	}
 	public function send()
 	{
